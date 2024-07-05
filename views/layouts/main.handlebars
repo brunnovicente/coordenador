@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <link href="/css/all.css" rel="stylesheet">
+    <title>Coordenador</title>
+</head>
+<body>
+    <nav class="navbar bg-dark text-white">
+        <div class="container-fluid">
+            <a class="navbar-brand navbar-dark" href="#">Coordenador</a>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa-solid fa-user-tie"></i> Usuário
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="#"><i class="far fa-id-card"></i> Meus Dados</a></li>
+                    <li><a class="dropdown-item" href=""><i class="fas fa-key"></i> Alterar Senha</a></li>
+                    <div class="dropdown-divider"></div>
+                    <li>
+                        <a class="dropdown-item" href="/user/logout">Sair</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-2">
+        {{>msg}}
+        {{{body}}}
+    </div>
+    <script src="/js/bootstrap.bundle.js"></script>
+</body>
+</html>

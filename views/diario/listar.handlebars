@@ -1,0 +1,49 @@
+<h4><i class="fas fa-folder"></i> Solicitação de Abertura de Diário</h4>
+
+<div class="border border-1 p-3 bg-light my-3">
+    <p class="text-danger text-center h5">
+        Solicite liberação de aulas ou transfira para outro professor.
+    </p>
+</div>
+
+
+<div class="row">
+    <div class="col-sm">
+        <form action="/diario/listar" method="post">
+            <label for="siape">DIGITE O SEU SIAPE AQUI E PRESSIONE ENTER</label>
+            <input type="text" id="siape" name="siape" class="form-control my-2 w-25">
+        </form>
+    </div>
+</div>
+
+
+{{#if professor}}
+
+    <div class="bg-light my-3 py-2 px-1 d-flex justify-content-between">
+        <h5>Prof. {{professor.nome}}</h5>
+        <a href="/solicitacao/listar/{{professor.id}}"><button class="btn btn-sm btn-outline-dark"><i class="fas fa-folder"></i> Minhas Solicitações</button></a>
+    </div>
+
+    <table class="table table-striped">
+        <tr>
+            <th>CURSO</th>
+            <th>TURMA</th>
+            <th>DIÁRIO</th>
+            <th>ANO</th>
+            <th></th>
+        </tr>
+        {{#each diarios}}
+            <tr>
+                <td>{{turma.curso.descricao}}</td>
+                <td>{{turma.descricao}}</td>
+                <td>{{descricao}}</td>
+                <td>{{turma.ano}}</td>
+                <td class="d-flex justify-content-end">
+                    <a href="/solicitacao/solicitar/{{id}}" class="btn btn-outline-dark btn-sm m-1"><i class="fas fa-unlock"></i> Solicitar</a>
+                    <a href="#" class="btn btn-outline-dark btn-sm m-1"><i class="fa-solid fa-right-left"></i> Transferir</a>
+                </td>
+            </tr>
+        {{/each}}
+    </table>
+
+{{/if}}

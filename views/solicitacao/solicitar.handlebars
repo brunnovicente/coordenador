@@ -1,0 +1,107 @@
+<div class="row p-3">
+    <h4 class="col-10">
+        Nova Solicitação de Abertura de Aula
+    </h4>
+    <div class="col-2 d-flex justify-content-end">
+        <form method="post" action="/diario/listar">
+            <input name="siape" hidden="hidden" value="{{diario.professore.siape}}">
+            <button class="btn btn-outline-dark">Voltar</button>
+        </form>
+    </div>
+</div>
+
+<div class="container">
+    <form action="/solicitacao/solicitar/{{diario.id}}" method="post">
+        <label>PROFESSOR</label>
+        <input class="form-control mb-3" type="text" disabled="disabled" value="{{diario.professore.nome}}">
+
+        <label>CURSO</label>
+        <input class="form-control mb-3" type="text" disabled="disabled" value="{{diario.turma.curso.descricao}}">
+
+        <label>TURMA</label>
+        <input class="form-control mb-3" type="text" disabled="disabled" value="{{diario.turma.descricao}}">
+
+        <label>DIÁRIO</label>
+        <input class="form-control mb-3"  type="text" disabled="disabled" value="{{diario.descricao}}">
+
+        <input type="date" name="data" id="data" class="form-control w-25 my-3">
+
+        <div class="mb-3">
+            <label>Horários</label>
+            <input class="form-check-input" name="primeiro" type="checkbox" value="">
+            <label class="form-check-label " for="primeiro" id="lprimeiro">
+                1º
+            </label>
+            <input class="form-check-input ms-3" name="segundo" type="checkbox" value="" id="segundo">
+            <label class="form-check-label " for="segundo" id="lsegundo">
+                2º
+            </label>
+            <input class="form-check-input ms-3" name="terceiro" type="checkbox" value="" id="terceiro">
+            <label class="form-check-label" for="terceiro" id="laterceiro">
+                3º
+            </label>
+            <input class="form-check-input ms-3" name="quarto" type="checkbox" value="" id="quarto">
+            <label class="form-check-label" for="quarto" id="lquarto">
+                4º
+            </label>
+            <input class="form-check-input ms-3" name="quinto" type="checkbox" value="" id="quinto">
+            <label class="form-check-label" for="quinto" id="lquinto">
+                5º
+            </label>
+            <input class="form-check-input ms-3" name="sexto" type="checkbox" value="" id="sexto">
+            <label class="form-check-label" for="sexto" id="lsexto">
+                6º
+            </label>
+        </div>
+
+        <label for="justificativa" class="mt-2">JUSTIFICATIVA</label>
+        <input type="text" name="justificativa" id="justificativa" class="form-control">
+
+        <label for="tipo" class="mt-2">TIPO</label>
+        <select name="tipo" id="tipo" class="form-select w-25">
+            <option>Substituição</option>
+            <option>Devolução</option>
+            <option>Livre</option>
+            <option>Contra-Turno</option>
+            <option>Eventos</option>
+            <option>Sábado</option>
+        </select>
+
+        <div class="d-flex justify-content-end">
+            <button type="submit" class="btn btn-success my-2">Solicitar</button>
+        </div>
+
+    </form>
+
+</div>
+
+<div id="carregando" style="display: none">
+    <?= $this->Html->image('acesso.gif', ['class'=>'d-block mx-auto', 'width'=>'500px']) ?>
+    <h5 class="text-center">Enviando Solicitação ao Batcaverna...</h5>
+</div>
+
+
+
+<script>
+
+    var formulario = document.getElementById('formulario');
+
+    formulario.onsubmit = function (){
+        var formulario = document.getElementById('formulario');
+        var carregando = document.getElementById('carregando');
+        formulario.style.display = 'none';
+        carregando.style.display = 'block';
+    }
+
+    // JavaScript para definir a data atual no campo de entrada
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const today = new Date();
+        const yyyy = today.getFullYear();
+        const mm = String(today.getMonth() + 1).padStart(2, '0'); // Janeiro é 0!
+        const dd = String(today.getDate()).padStart(2, '0');
+
+        const todayString = `${yyyy}-${mm}-${dd}`;
+        document.getElementById('data').value = todayString;
+    });
+
+</script>
