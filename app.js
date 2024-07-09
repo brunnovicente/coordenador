@@ -84,3 +84,16 @@ PORTA = 8081
 app.listen(PORTA, function (){
     console.log('Servidor rodando: http://localhost:'+PORTA);
 })
+
+// var User = require('./models/User');
+// var Professor  = require('./models/Professor');
+//
+// User.findOne({
+//     where:{username: '1226388'},
+//     include: {
+//         model: Professor,
+//     }
+// }).then(function(user){
+//     console.log(user)
+// })
+

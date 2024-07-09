@@ -33,5 +33,5 @@ Solicitacao.belongsTo(Diario, {
     constraint: true,
 })
 
-Solicitacao.sync()
+//Solicitacao.sync()
 module.exports = Solicitacao

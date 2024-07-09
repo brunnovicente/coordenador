@@ -1,12 +1,15 @@
 const localStrategy = require('passport-local').Strategy
 const criptografia = require('bcryptjs')
-const User = require('../models/user')
+const User = require('../models/User')
+const Professor = require('../models/Professor')
 const {where} = require("sequelize");
+
 
 module.exports = function (passport){
     passport.use(new localStrategy({usernameField: 'username', passwordField: 'password'}, function (username, password, done){
         User.findOne({
-            where:{username: username}
+            where:{username: username},
+            include: Professor
         }).then((user)=>{
             if(!user){
                 return done(null, false, {message: 'Usuário não encontrado'});

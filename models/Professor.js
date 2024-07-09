@@ -16,7 +16,12 @@ const Professor = banco.sequelize.define('professores', {
 Professor.belongsTo(User, {
     foreignKey: 'user_id',
     constraint: true,
+    as: 'professor'
 })
 
-Professor.sync()
+User.hasOne(Professor, {
+    foreignKey: 'user_id',
+})
+
+//Professor.sync()
 module.exports = Professor

@@ -25,5 +25,5 @@ Curso.hasMany(Turma, {
     foreignKey: 'curso_id'
 })
 
-Turma.sync()
+//Turma.sync()
 module.exports = Turma

@@ -35,5 +35,5 @@ Professor.hasMany(Diario,{
     foreignKey: 'professor_id',
 })
 
-Diario.sync()
+//Diario.sync()
 module.exports = Diario

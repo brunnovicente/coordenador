@@ -15,5 +15,5 @@ Curso.belongsTo(Professor, {
     constraint: true,
 })
 
-Curso.sync()
+//Curso.sync()
 module.exports = Curso

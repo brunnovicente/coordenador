@@ -9,7 +9,13 @@ const Solicitacao = require('../models/Solicitacao');
 const Turma = require("../models/Turma");
 
 router.get('/', coordenador, function (req, res) {
-    res.render('principal/index')
+    Professor.findOne({
+        where: {user_id: req.user.id},
+    }).then((professor) => {
+        req.user.professor = professor
+        res.render('principal/index', )
+    })
+
 })
 
 module.exports = router

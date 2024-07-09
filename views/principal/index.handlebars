@@ -25,19 +25,19 @@ use Cake\I18n\FrozenTime;
 <div class="row mt-2">
     <div class="col-sm-3">
         <div class="border border-1 rounded-2 bg-light p-2">
-            <img src="<?= $user['foto'] ?>" class="w-50 mx-auto rounded-circle d-flex align-content-center">
+            <img src="{{user.foto}}" class="w-50 mx-auto rounded-circle d-flex align-content-center">
 
-            <?php if($user['categoria'] == 'MONITOR'):  ?>
-            <h4 class="text-center mt-3"><?= $user['aluno']->nome ?></h4>
-            <h5 class="text-center mt-2">MATRÍCULA: <?= $user['aluno']->matricula ?></h5>
-            <h5 class="text-center mt-2">E-MAIL: <?= $user['aluno']->email ?></h5>
-            <h5 class="text-center mt-2">CATEGORIA: <?= $user['categoria'] ?></h5>
-            <?php else:?>
-            <h4 class="text-center mt-3"><?= $user['professor']->nome ?></h4>
-            <h5 class="text-center mt-2">SIAPE: <?= $user['professor']->siape ?></h5>
-            <h5 class="text-center mt-2">E-MAIL: <?= $user['professor']->email ?></h5>
-            <h5 class="text-center mt-2">CATEGORIA: <?= $user['categoria'] ?></h5>
-            <?php endif;?>
+
+<!--            <h4 class="text-center mt-3"><?= $user['aluno']->nome ?></h4>-->
+<!--            <h5 class="text-center mt-2">MATRÍCULA: <?= $user['aluno']->matricula ?></h5>-->
+<!--            <h5 class="text-center mt-2">E-MAIL: <?= $user['aluno']->email ?></h5>-->
+<!--            <h5 class="text-center mt-2">CATEGORIA: <?= $user['categoria'] ?></h5>-->
+
+            <h4 class="text-center mt-3">{{user.professor.nome}}</h4>
+            <h5 class="text-center mt-2">SIAPE: {{user.username}}</h5>
+            <h5 class="text-center mt-2">E-MAIL: </h5>
+            <h5 class="text-center mt-2">CATEGORIA: {{user.categoria}}</h5>
+
         </div>
 
     </div>

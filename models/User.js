@@ -18,5 +18,5 @@ const User = banco.sequelize.define('users', {
     }
 })
 
-User.sync()
+//User.sync()
 module.exports = User
